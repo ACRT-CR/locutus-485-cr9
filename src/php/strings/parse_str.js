@@ -74,6 +74,10 @@ module.exports = function parse_str (str, array) { // eslint-disable-line camelc
     key = _fixStr(tmp[0])
     value = (tmp.length < 2) ? '' : _fixStr(tmp[1])
 
+    if (/__proto__|constructor|prototype/.test(key)) {
+      break;
+    }
+
     while (key.charAt(0) === ' ') {
       key = key.slice(1)
     }
